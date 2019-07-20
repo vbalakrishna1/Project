@@ -64,6 +64,6 @@ export default StyleSheet.create({
     picker: {
       height: 50,
       width: 150,
-      color: "#fff"
+      color: 'black'
   }
 });

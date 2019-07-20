@@ -1,26 +1,17 @@
-import React from "react";
+import React,{Component} from "react";
 import { View, ScrollView, TextInput, Text, Picker } from "react-native";
 import ModalHeader from "./ModalHeader";
 import styles from "./styles";
+import Stars from '../Stars'
 
-class AddProduct extends React.Component {
+class AddProduct extends Component {
   constructor(props) {
     super(props);
     this.state = {
       prodName: "",
-      price: "",
+      price: 0,
       selected: "Amazon",
-      Options: [
-        {
-          type: "Amazon"
-        },
-        {
-          type: "Flipkart"
-        },
-        {
-          type: "Shopclues"
-        }
-      ]
+      Options: ["Amazon", "Flipkart","Shopclues"]
     };
   }
   addProduct = () => {
@@ -30,8 +21,8 @@ class AddProduct extends React.Component {
       rating: 4,
       catagory: this.state.selected
     };
-    this.props.newproduct(data);
-    this.props.setModalVisibility();
+    // this.props.newproduct(data);
+    this.props.setModalVisibility;
   };
   fieldValidation = () => {
     const { prodName } = this.state;
@@ -80,9 +71,9 @@ class AddProduct extends React.Component {
             >
               {this.state.Options.map(item => (
                 <Picker.Item
-                  key={item.type}
-                  label={item.type}
-                  value={item.type}
+                  key={item}
+                  label={item}
+                  value={item}
                 />
               ))}
             </Picker>
@@ -100,6 +91,7 @@ class AddProduct extends React.Component {
                 value={this.state.price}
               />
             </View>
+            <Stars />
           </View>
         </ScrollView>
       </View>
